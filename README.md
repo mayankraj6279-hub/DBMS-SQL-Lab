@@ -19,7 +19,7 @@ The assignment covers:
 - Table creation and modification (DDL)  
 - Data insertion, update, deletion, and retrieval (DML)  
 
-All SQL queries are written in a **proper `.sql` file** as required for correct evaluation and future reference.
+All SQL queries are written in a **proper `DB-Lab-1-Solutions.sql` file** as required for correct evaluation and future reference.
 
 ---
 
@@ -32,7 +32,7 @@ SQL-exercise │ ├── SQL_exercise_1 │   │ │   ├── Lab-1-Questi
 1. Open your SQL editor (MySQL Workbench / Oracle SQL Plus / SQLite)
 2. Create or select the required database
 3. Open and run the solution file:
-4. 4. Execute the queries in sequence
+4. Execute the queries in sequence
 5. Verify results using `SELECT` statements
 
 ---
@@ -41,7 +41,7 @@ SQL-exercise │ ├── SQL_exercise_1 │   │ │   ├── Lab-1-Questi
 - SQL queries are executed in the given order  
 - The user has basic knowledge of SQL  
 - The DBMS supports standard SQL syntax  
-- The `.sql` file is used instead of screenshots or copied output  
+- The `DB-Lab-1-Solutions.sql` file is used instead of screenshots or copied output  
 
 ---
 
