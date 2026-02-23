@@ -54,10 +54,9 @@ This assignment helped in understanding **basic SQL operations**, database struc
 
 
 **DBMS Laboratory – Lab 2**
+
 College Management System Database Design
-🎓 Semester: 5th
-📚 Course: B.Tech (CSE / AI & ML)
-🧑‍💻 Subject: Database Management Systems Laboratory
+
 📌 About the Assignment
 
 This laboratory experiment focuses on the design and implementation of a College Management System database.
