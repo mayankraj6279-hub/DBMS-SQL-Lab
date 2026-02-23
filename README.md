@@ -53,7 +53,7 @@ This assignment helped in understanding **basic SQL operations**, database struc
 
 
 
-DBMS Laboratory – Lab 2
+**DBMS Laboratory – Lab 2**
 College Management System Database Design
 🎓 Semester: 5th
 📚 Course: B.Tech (CSE / AI & ML)
