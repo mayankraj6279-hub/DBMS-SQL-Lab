@@ -47,7 +47,12 @@ SQL-exercise │ ├── SQL_exercise_1 │   │ │   ├── Lab-1-Questi
 
 ## ✅ Conclusion
 This assignment helped in understanding **basic SQL operations**, database structure, and correct usage of DDL and DML commands through hands-on practice.
-📘 
+
+
+
+
+
+
 DBMS Laboratory – Lab 2
 College Management System Database Design
 🎓 Semester: 5th
