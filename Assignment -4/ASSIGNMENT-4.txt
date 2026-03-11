@@ -1,0 +1,713 @@
+SQL> SELECT
+  2      StudentID AS Roll_No,
+  3      Name AS Student_Name,
+  4      DOB AS Date_of_Birth,
+  5      Gender AS Gender,
+  6      ContactNumber AS Contact_No,
+  7      DepartmentID AS Dept_ID
+  8  FROM Student;
+    DepartmentID AS Dept_ID
+    *
+ERROR at line 7:
+ORA-00904: "DEPARTMENTID": invalid identifier
+
+
+SQL> DESC Student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER
+ NAME                                               VARCHAR2(50)
+ DOB                                                DATE
+ GENDER                                             VARCHAR2(10)
+ CONTACT                                            VARCHAR2(15)
+ DEPTID                                             NUMBER
+
+SQL> SELECT
+  2    2      StudentID AS Roll_No,
+  3    3      Name AS Student_Name,
+  4    4      DOB AS Date_of_Birth,
+  5    5      Gender AS Gender,
+  6    6      Contact AS Contact_No,
+  7           DeptID AS Dept_ID
+  8           FROM Student;
+  2      StudentID AS Roll_No,
+                   *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT
+  2  StudentID AS Roll_No,
+  3  Name AS Student_Name,
+  4  DOB AS Date_of_Birth,
+  5  Gender AS Gender,
+  6  Contact AS Contact_No,
+  7  DeptID AS Dept_ID
+  8  FROM Student;
+
+   ROLL_NO STUDENT_NAME                                       DATE_OF_B
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT_NO         DEPT_ID
+---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04
+Male       9123456789               1
+
+         2 Anjali Kumari                                      10-MAY-03
+Female     9234567890               1
+
+         3 Vikas Sharma                                       22-JAN-04
+Male       9345678901               2
+
+
+   ROLL_NO STUDENT_NAME                                       DATE_OF_B
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT_NO         DEPT_ID
+---------- --------------- ----------
+         4 Neha Singh                                         18-SEP-03
+Female     9123456784               4
+
+         5 Amit Verma                                         05-MAR-04
+Male       9123456785               5
+
+         6 Pooja Gupta                                        12-DEC-03
+Female     9123456786               6
+
+
+   ROLL_NO STUDENT_NAME                                       DATE_OF_B
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT_NO         DEPT_ID
+---------- --------------- ----------
+         7 Saurabh Mishra                                     28-JUN-04
+Male       9123456787               7
+
+         8 Kiran Patel                                        07-APR-03
+Male       9123456788               8
+
+         9 Priya Yadav                                        19-NOV-04
+Female     9123456789               9
+
+
+   ROLL_NO STUDENT_NAME                                       DATE_OF_B
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT_NO         DEPT_ID
+---------- --------------- ----------
+        10 Rohit Das                                          30-JAN-03
+Male       9123456790              10
+
+
+10 rows selected.
+
+SQL> SELECT
+  2  StudentID AS Roll_No,
+  3  Name AS Student_Name,
+  4  DeptID AS Dept_ID
+  5  FROM Student;
+
+   ROLL_NO STUDENT_NAME                                          DEPT_ID
+---------- -------------------------------------------------- ----------
+         1 Rahul Kumar                                                 1
+         2 Anjali Kumari                                               1
+         3 Vikas Sharma                                                2
+         4 Neha Singh                                                  4
+         5 Amit Verma                                                  5
+         6 Pooja Gupta                                                 6
+         7 Saurabh Mishra                                              7
+         8 Kiran Patel                                                 8
+         9 Priya Yadav                                                 9
+        10 Rohit Das                                                  10
+
+10 rows selected.
+
+SQL> DESC Faculty;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FACULTYID                                 NOT NULL NUMBER
+ NAME                                               VARCHAR2(50)
+ DESIGNATION                                        VARCHAR2(50)
+ EMAIL                                              VARCHAR2(50)
+ DEPTID                                             NUMBER
+
+SQL> SELECT
+  2  FacultyID AS Faculty_ID,
+  3  Name AS Faculty_Name,
+  4  Designation AS Job_Title,
+  5  Email AS Faculty_Email
+  6  FROM Faculty;
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+       101 Sujeet Kumar
+Assistant Professor
+ksujeet.cs@gmail.com
+
+       102 Prof. Praveen Kumar
+Assistant Professor
+praveenkumaryadav782@gmail.com
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+
+       103 Prof. Hare Krishna Mishra
+Assistant Professor
+hare.dbit@gmail.com
+
+       104 Prof. Nitish Kumar
+Assistant Professor
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+nitianj@gmail.com
+
+       105 Prof. Murlidhar Prasad Singh(HoD)
+Assistant Professor
+singhmurlidhar@gmail.com
+
+       106 Prof. Manisha Kumari Singh
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+Assistant Professor
+manisha.k241@gmail.com
+
+       107 Prof. Md. Izhar
+Assistant Professor
+mdizhar1996@gmail.com
+
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+       108 Prof. Kunal Kumar(HoD)
+Assistant Professor
+kunal1989kumar@gmail.com
+
+       109 Prof. Raushan Anand
+Assistant Professor
+raushanbpmc@gmail.com
+
+FACULTY_ID FACULTY_NAME
+---------- --------------------------------------------------
+JOB_TITLE
+--------------------------------------------------
+FACULTY_EMAIL
+--------------------------------------------------
+
+       110 Mr. Nishikant Kumar
+Assistant Professor
+nishikantbpmc32@gmail.com
+
+
+10 rows selected.
+
+SQL> SET LINESIZE 200;
+SQL> SET PAGESIZE 100;
+SQL> SELECT
+  2  FacultyID AS Faculty_ID,
+  3  Name AS Faculty_Name,
+  4  Designation AS Job_Title,
+  5  Email AS Faculty_Email
+  6  FROM Faculty;
+
+FACULTY_ID FACULTY_NAME                                       JOB_TITLE                                          FACULTY_EMAIL
+---------- -------------------------------------------------- -------------------------------------------------- --------------------------------------------------
+       101 Sujeet Kumar                                       Assistant Professor                                ksujeet.cs@gmail.com
+       102 Prof. Praveen Kumar                                Assistant Professor                                praveenkumaryadav782@gmail.com
+       103 Prof. Hare Krishna Mishra                          Assistant Professor                                hare.dbit@gmail.com
+       104 Prof. Nitish Kumar                                 Assistant Professor                                nitianj@gmail.com
+       105 Prof. Murlidhar Prasad Singh(HoD)                  Assistant Professor                                singhmurlidhar@gmail.com
+       106 Prof. Manisha Kumari Singh                         Assistant Professor                                manisha.k241@gmail.com
+       107 Prof. Md. Izhar                                    Assistant Professor                                mdizhar1996@gmail.com
+       108 Prof. Kunal Kumar(HoD)                             Assistant Professor                                kunal1989kumar@gmail.com
+       109 Prof. Raushan Anand                                Assistant Professor                                raushanbpmc@gmail.com
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com
+
+10 rows selected.
+
+SQL> DESC Course;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ COURSEID                                                                                                          NOT NULL NUMBER
+ COURSENAME                                                                                                                 VARCHAR2(50)
+ CREDITS                                                                                                                    NUMBER
+ DEPTID                                                                                                                     NUMBER
+ FACULTYID                                                                                                                  NUMBER
+
+SQL> SELECT
+  2  CourseID AS Course_ID,
+  3  CourseName AS Course_Name,
+  4  Credits AS Course_Credits,
+  5  DeptID AS Dept_ID,
+  6  FacultyID AS Faculty_ID
+  7  FROM Course;
+
+ COURSE_ID COURSE_NAME                                        COURSE_CREDITS    DEPT_ID FACULTY_ID
+---------- -------------------------------------------------- -------------- ---------- ----------
+       201 DBMS                                                            4          1        101
+       202 Quantum Physics                                                 3          4        109
+       203 Digital Electronic                                              3          5        103
+       204 Computer Network                                                3          7        107
+       205 DSA                                                             4          8        107
+       206 Electronic                                                      2          4        108
+       207 Operating System                                                4          1        106
+       208 Fluid mechanics                                                 4          4        110
+       209 Advanced Hydrology                                              3          4        110
+       210 Power System                                                    3          6        103
+
+10 rows selected.
+
+SQL> desc Enrollment;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ STUDENTID                                                                                                         NOT NULL NUMBER
+ COURSEID                                                                                                          NOT NULL NUMBER
+ SEMESTER                                                                                                                   NUMBER
+ GRADE                                                                                                                      VARCHAR2(5)
+
+SQL> SELECT
+  2  StudentID AS ROLL_No,
+  3  CourseID AS Course_ID,
+  4  Semester AS Sem,
+  5  Grade AS Final_Grade
+  6  FROM Enrollment;
+
+   ROLL_NO  COURSE_ID        SEM FINAL
+---------- ---------- ---------- -----
+         1        201          1 A
+         2        202          1 B+
+         3        203          2 A-
+         4        204          2 B
+         5        205          3 A
+         6        206          3 B+
+         7        207          4 A-
+         8        208          4 B
+         9        209          5 A
+        10        210          5 A+
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Student
+  3  WHERE DeptID = 1;
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+
+SQL> SELECT *
+  2  FROM Student
+  3  WHERE Gender = 'Female';
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         4 Neha Singh                                         18-SEP-03 Female     9123456784               4
+         6 Pooja Gupta                                        12-DEC-03 Female     9123456786               6
+         9 Priya Yadav                                        19-NOV-04 Female     9123456789               9
+
+SQL> SELECT*
+  2  FROM Faculty
+  3  WHERE Designation ='Assistant Professor';
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       101 Sujeet Kumar                                       Assistant Professor                                ksujeet.cs@gmail.com                           1
+       102 Prof. Praveen Kumar                                Assistant Professor                                praveenkumaryadav782@gmail.com                 1
+       103 Prof. Hare Krishna Mishra                          Assistant Professor                                hare.dbit@gmail.com                            6
+       104 Prof. Nitish Kumar                                 Assistant Professor                                nitianj@gmail.com                              6
+       105 Prof. Murlidhar Prasad Singh(HoD)                  Assistant Professor                                singhmurlidhar@gmail.com                       9
+       106 Prof. Manisha Kumari Singh                         Assistant Professor                                manisha.k241@gmail.com                         8
+       107 Prof. Md. Izhar                                    Assistant Professor                                mdizhar1996@gmail.com                          8
+       108 Prof. Kunal Kumar(HoD)                             Assistant Professor                                kunal1989kumar@gmail.com                       4
+       109 Prof. Raushan Anand                                Assistant Professor                                raushanbpmc@gmail.com                          4
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Faculty
+  3  WHERE DeptID = 2;
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+
+SQL> SET LINESIZE 100;
+SQL> SET PAGESIZE 200;
+SQL> SELECT *
+  2    2  FROM Faculty
+  3    3  WHERE DeptID = 2;
+  2  FROM Faculty
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT *
+  2  FROM Faculty
+  3  WHERE DeptID = 2;
+
+ FACULTYID NAME
+---------- --------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+EMAIL                                                  DEPTID
+-------------------------------------------------- ----------
+       110 Mr. Nishikant Kumar
+Assistant Professor
+nishikantbpmc32@gmail.com                                   2
+
+
+SQL> SET LINESIZE 200;
+SQL> SET PAGESIZE 100;
+SQL> SELECT *
+  2    2  FROM Faculty
+  3    3  WHERE DeptID = 2;
+  2  FROM Faculty
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT *
+  2  FROM Faculty
+  3  WHERE DeptID =2;
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+
+SQL> SELECT*
+  2  FROM Course
+  3  WHERE Credits >=4;
+
+  COURSEID COURSENAME                                            CREDITS     DEPTID  FACULTYID
+---------- -------------------------------------------------- ---------- ---------- ----------
+       201 DBMS                                                        4          1        101
+       205 DSA                                                         4          8        107
+       207 Operating System                                            4          1        106
+       208 Fluid mechanics                                             4          4        110
+
+SQL> SELECT *
+  2  FROM Student
+  3  WHERE DOB > TO_DATE('2003-01-01','YYYY-MM-DD');
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         3 Vikas Sharma                                       22-JAN-04 Male       9345678901               2
+         4 Neha Singh                                         18-SEP-03 Female     9123456784               4
+         5 Amit Verma                                         05-MAR-04 Male       9123456785               5
+         6 Pooja Gupta                                        12-DEC-03 Female     9123456786               6
+         7 Saurabh Mishra                                     28-JUN-04 Male       9123456787               7
+         8 Kiran Patel                                        07-APR-03 Male       9123456788               8
+         9 Priya Yadav                                        19-NOV-04 Female     9123456789               9
+        10 Rohit Das                                          30-JAN-03 Male       9123456790              10
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Enrollment
+  3  WHERE Semester = 4;
+
+ STUDENTID   COURSEID   SEMESTER GRADE
+---------- ---------- ---------- -----
+         7        207          4 A-
+         8        208          4 B
+
+SQL> SELECT *
+  2  FROM Student
+  3  ORDER BY Name ASC;
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         5 Amit Verma                                         05-MAR-04 Male       9123456785               5
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         8 Kiran Patel                                        07-APR-03 Male       9123456788               8
+         4 Neha Singh                                         18-SEP-03 Female     9123456784               4
+         6 Pooja Gupta                                        12-DEC-03 Female     9123456786               6
+         9 Priya Yadav                                        19-NOV-04 Female     9123456789               9
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+        10 Rohit Das                                          30-JAN-03 Male       9123456790              10
+         7 Saurabh Mishra                                     28-JUN-04 Male       9123456787               7
+         3 Vikas Sharma                                       22-JAN-04 Male       9345678901               2
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Student
+  3  ORDER BY DOB DESC;
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         9 Priya Yadav                                        19-NOV-04 Female     9123456789               9
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+         7 Saurabh Mishra                                     28-JUN-04 Male       9123456787               7
+         5 Amit Verma                                         05-MAR-04 Male       9123456785               5
+         3 Vikas Sharma                                       22-JAN-04 Male       9345678901               2
+         6 Pooja Gupta                                        12-DEC-03 Female     9123456786               6
+         4 Neha Singh                                         18-SEP-03 Female     9123456784               4
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         8 Kiran Patel                                        07-APR-03 Male       9123456788               8
+        10 Rohit Das                                          30-JAN-03 Male       9123456790              10
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Faculty
+  3  ORDER BY Designation ASC;
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       101 Sujeet Kumar                                       Assistant Professor                                ksujeet.cs@gmail.com                           1
+       102 Prof. Praveen Kumar                                Assistant Professor                                praveenkumaryadav782@gmail.com                 1
+       103 Prof. Hare Krishna Mishra                          Assistant Professor                                hare.dbit@gmail.com                            6
+       104 Prof. Nitish Kumar                                 Assistant Professor                                nitianj@gmail.com                              6
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+       106 Prof. Manisha Kumari Singh                         Assistant Professor                                manisha.k241@gmail.com                         8
+       107 Prof. Md. Izhar                                    Assistant Professor                                mdizhar1996@gmail.com                          8
+       108 Prof. Kunal Kumar(HoD)                             Assistant Professor                                kunal1989kumar@gmail.com                       4
+       109 Prof. Raushan Anand                                Assistant Professor                                raushanbpmc@gmail.com                          4
+       105 Prof. Murlidhar Prasad Singh(HoD)                  Assistant Professor                                singhmurlidhar@gmail.com                       9
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Faculty
+  3  ORDER BY Designation ASC, Name ASC;
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+       103 Prof. Hare Krishna Mishra                          Assistant Professor                                hare.dbit@gmail.com                            6
+       108 Prof. Kunal Kumar(HoD)                             Assistant Professor                                kunal1989kumar@gmail.com                       4
+       106 Prof. Manisha Kumari Singh                         Assistant Professor                                manisha.k241@gmail.com                         8
+       107 Prof. Md. Izhar                                    Assistant Professor                                mdizhar1996@gmail.com                          8
+       105 Prof. Murlidhar Prasad Singh(HoD)                  Assistant Professor                                singhmurlidhar@gmail.com                       9
+       104 Prof. Nitish Kumar                                 Assistant Professor                                nitianj@gmail.com                              6
+       102 Prof. Praveen Kumar                                Assistant Professor                                praveenkumaryadav782@gmail.com                 1
+       109 Prof. Raushan Anand                                Assistant Professor                                raushanbpmc@gmail.com                          4
+       101 Sujeet Kumar                                       Assistant Professor                                ksujeet.cs@gmail.com                           1
+
+10 rows selected.
+
+SQL> SELECT Name
+  2  FROM Faculty
+  3  ORDER BY SUBSTR(Name, INSTR(Name,' ')+1) ASC;
+
+NAME
+--------------------------------------------------
+Prof. Hare Krishna Mishra
+Sujeet Kumar
+Prof. Kunal Kumar(HoD)
+Prof. Manisha Kumari Singh
+Prof. Md. Izhar
+Prof. Murlidhar Prasad Singh(HoD)
+Mr. Nishikant Kumar
+Prof. Nitish Kumar
+Prof. Praveen Kumar
+Prof. Raushan Anand
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM Course
+  3  ORDER BY Credits DESC;
+
+  COURSEID COURSENAME                                            CREDITS     DEPTID  FACULTYID
+---------- -------------------------------------------------- ---------- ---------- ----------
+       201 DBMS                                                        4          1        101
+       205 DSA                                                         4          8        107
+       208 Fluid mechanics                                             4          4        110
+       207 Operating System                                            4          1        106
+       210 Power System                                                3          6        103
+       209 Advanced Hydrology                                          3          4        110
+       204 Computer Network                                            3          7        107
+       203 Digital Electronic                                          3          5        103
+       202 Quantum Physics                                             3          4        109
+       206 Electronic                                                  2          4        108
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM STUDENT
+  3  WHERE ROWNUM<=3;
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         3 Vikas Sharma                                       22-JAN-04 Male       9345678901               2
+
+SQL> SELECT *
+  2  FROM Course
+  3  WHERE  ROWNUM <=5;
+
+  COURSEID COURSENAME                                            CREDITS     DEPTID  FACULTYID
+---------- -------------------------------------------------- ---------- ---------- ----------
+       201 DBMS                                                        4          1        101
+       202 Quantum Physics                                             3          4        109
+       203 Digital Electronic                                          3          5        103
+       204 Computer Network                                            3          7        107
+       205 DSA                                                         4          8        107
+
+SQL> SELECT
+  2  Name,
+  3  TRUNC(MONTHS_BETWEEN(SYSDATE, DOB)/12) AS Age
+  4  FROM Student;
+
+NAME                                                      AGE
+-------------------------------------------------- ----------
+Rahul Kumar                                                21
+Anjali Kumari                                              22
+Vikas Sharma                                               22
+Neha Singh                                                 22
+Amit Verma                                                 21
+Pooja Gupta                                                22
+Saurabh Mishra                                             21
+Kiran Patel                                                22
+Priya Yadav                                                21
+Rohit Das                                                  23
+
+10 rows selected.
+
+SQL> SELECT
+  2  CourseName,
+  3  Credits + 1 AS Updated_Credits
+  4  FROM Course;
+
+COURSENAME                                         UPDATED_CREDITS
+-------------------------------------------------- ---------------
+DBMS                                                             5
+Quantum Physics                                                  4
+Digital Electronic                                               4
+Computer Network                                                 4
+DSA                                                              5
+Electronic                                                       3
+Operating System                                                 5
+Fluid mechanics                                                  5
+Advanced Hydrology                                               4
+Power System                                                     4
+
+10 rows selected.
+
+SQL> SELECT
+  2  StudentID,
+  3  CourseID,
+  4  Semester,
+  5  Grade AS Final_Grade
+  6  FROM Enrollment;
+
+ STUDENTID   COURSEID   SEMESTER FINAL
+---------- ---------- ---------- -----
+         1        201          1 A
+         2        202          1 B+
+         3        203          2 A-
+         4        204          2 B
+         5        205          3 A
+         6        206          3 B+
+         7        207          4 A-
+         8        208          4 B
+         9        209          5 A
+        10        210          5 A+
+
+10 rows selected.
+
+SQL> SELECT
+  2  Name,
+  3  EXTRACT(YEAR FROM DOB) As Year _of_Birth
+  4  FROM Student;
+EXTRACT(YEAR FROM DOB) As Year _of_Birth
+                               *
+ERROR at line 3:
+ORA-00911: invalid character
+
+
+SQL> SELECT
+  2  Name,
+  3  EXTRACT(YEAR FROM DOB) AS Year_of_Birth
+  4  FROM Student;
+
+NAME                                               YEAR_OF_BIRTH
+-------------------------------------------------- -------------
+Rahul Kumar                                                 2004
+Anjali Kumari                                               2003
+Vikas Sharma                                                2004
+Neha Singh                                                  2003
+Amit Verma                                                  2004
+Pooja Gupta                                                 2003
+Saurabh Mishra                                              2004
+Kiran Patel                                                 2003
+Priya Yadav                                                 2004
+Rohit Das                                                   2003
+
+10 rows selected.
+
+SQL> SELECT
+  2  Name,
+  3  SUBSTR(Email, INSTR(Email,'@')+1) AS Email_Domain
+  4  FROM Faculty;
+
+NAME
+--------------------------------------------------
+EMAIL_DOMAIN
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sujeet Kumar
+gmail.com
+
+Prof. Praveen Kumar
+gmail.com
+
+Prof. Hare Krishna Mishra
+gmail.com
+
+Prof. Nitish Kumar
+gmail.com
+
+Prof. Murlidhar Prasad Singh(HoD)
+gmail.com
+
+Prof. Manisha Kumari Singh
+gmail.com
+
+Prof. Md. Izhar
+gmail.com
+
+Prof. Kunal Kumar(HoD)
+gmail.com
+
+Prof. Raushan Anand
+gmail.com
+
+Mr. Nishikant Kumar
+gmail.com
+
+
+10 rows selected.
+
+SQL> SPOOL myfile.sql
+SQL> COMMIT;
+
+Commit complete.
+
+SQL>
