@@ -1,0 +1,313 @@
+
+SQL> -- 1. Total number of students
+SQL> SELECT COUNT(*) AS Total_Students
+  2  FROM Student;
+
+TOTAL_STUDENTS
+--------------
+            10
+
+SQL>
+SQL> -- 2. Total number of faculty
+SQL> SELECT COUNT(*) AS Total_Faculty
+  2  FROM Faculty;
+
+TOTAL_FACULTY
+-------------
+           10
+
+SQL>
+SQL> -- 3. Total number of courses
+SQL> SELECT COUNT(*) AS Total_Courses
+  2  FROM Course;
+
+TOTAL_COURSES
+-------------
+           10
+
+SQL>
+SQL> -- 4. Maximum credits
+SQL> SELECT MAX(CREDITS) AS Max_Credits
+  2  FROM Course;
+
+MAX_CREDITS
+-----------
+          4
+
+SQL>
+SQL> -- 5. Minimum credits
+SQL> SELECT MIN(CREDITS) AS Min_Credits
+  2  FROM Course;
+
+MIN_CREDITS
+-----------
+          2
+
+SQL> -- 6. Students in each department
+SQL> SELECT DEPTID, COUNT(*) AS Total_Students
+  2  FROM Student
+  3  GROUP BY DEPTID;
+
+    DEPTID TOTAL_STUDENTS
+---------- --------------
+         1              2
+         2              1
+         4              1
+         5              1
+         6              1
+         7              1
+         8              1
+         9              1
+        10              1
+
+9 rows selected.
+
+SQL>
+SQL> -- 7. Faculty in each department
+SQL> SELECT DEPTID, COUNT(*) AS Total_Faculty
+  2  FROM Faculty
+  3  GROUP BY DEPTID;
+
+    DEPTID TOTAL_FACULTY
+---------- -------------
+         1             2
+         6             2
+         9             1
+         8             2
+         4             2
+         2             1
+
+6 rows selected.
+
+SQL>
+SQL> -- 8. Courses per department
+SQL> SELECT DEPTID, COUNT(*) AS Total_Courses
+  2  FROM Course
+  3  GROUP BY DEPTID;
+
+    DEPTID TOTAL_COURSES
+---------- -------------
+         1             2
+         4             4
+         5             1
+         7             1
+         8             1
+         6             1
+
+6 rows selected.
+
+SQL>
+SQL> -- 9. Enrollments per semester
+SQL> SELECT Semester, COUNT(*) AS Total_Enrollments
+  2  FROM Enrollment
+  3  GROUP BY Semester;
+
+  SEMESTER TOTAL_ENROLLMENTS
+---------- -----------------
+         1                 2
+         2                 2
+         3                 2
+         4                 2
+         5                 2
+
+SQL>
+SQL> -- 10. Students per grade
+SQL> SELECT Grade, COUNT(*) AS Total_Students
+  2  FROM Enrollment
+  3  GROUP BY Grade;
+
+GRADE TOTAL_STUDENTS
+----- --------------
+A                  3
+B+                 2
+A-                 2
+B                  2
+A+                 1
+
+SQL> -- 11. Departments with more than 3 students
+SQL> SELECT DEPTID, COUNT(*) AS Total_Students
+  2  FROM Student
+  3  GROUP BY DEPTID
+  4  HAVING COUNT(*) > 3;
+
+no rows selected
+
+SQL>
+SQL> -- 12. Semesters with more than 2 enrollments
+SQL> SELECT Semester, COUNT(*) AS Total_Enrollments
+  2  FROM Enrollment
+  3  GROUP BY Semester
+  4  HAVING COUNT(*) > 2;
+
+no rows selected
+
+SQL>
+SQL> -- 13. Grades with more than 1 student
+SQL> SELECT Grade, COUNT(*) AS Total_Students
+  2  FROM Enrollment
+  3  GROUP BY Grade
+  4  HAVING COUNT(*) > 1;
+
+GRADE TOTAL_STUDENTS
+----- --------------
+A                  3
+B+                 2
+A-                 2
+B                  2
+
+SQL>
+SQL> -- 14. Departments with more than 1 course
+SQL> SELECT DEPTID, COUNT(*) AS Total_Courses
+  2  FROM Course
+  3  GROUP BY DEPTID
+  4  HAVING COUNT(*) > 1;
+
+    DEPTID TOTAL_COURSES
+---------- -------------
+         1             2
+         4             4
+
+SQL> -- 15. Students in each course
+SQL> SELECT CourseID, COUNT(StudentID) AS Total_Students
+  2  FROM Enrollment
+  3  GROUP BY CourseID;
+
+  COURSEID TOTAL_STUDENTS
+---------- --------------
+       201              1
+       202              1
+       203              1
+       204              1
+       205              1
+       206              1
+       207              1
+       208              1
+       209              1
+       210              1
+
+10 rows selected.
+
+SQL>
+SQL> -- 16. Course name with number of students
+SQL> SELECT C.COURSENAME, COUNT(E.StudentID) AS Total_Students
+  2  FROM Course C
+  3  JOIN Enrollment E
+  4  ON C.COURSEID = E.COURSEID
+  5  GROUP BY C.COURSENAME;
+
+COURSENAME                                         TOTAL_STUDENTS
+-------------------------------------------------- --------------
+DBMS                                                            1
+Quantum Physics                                                 1
+Digital Electronic                                              1
+Computer Network                                                1
+DSA                                                             1
+Electronic                                                      1
+Operating System                                                1
+Fluid mechanics                                                 1
+Advanced Hydrology                                              1
+Power System                                                    1
+
+10 rows selected.
+
+SQL>
+SQL> -- 17. Department and number of students
+SQL> SELECT DEPTID, COUNT(*) AS Total_Students
+  2  FROM Student
+  3  GROUP BY DEPTID;
+
+    DEPTID TOTAL_STUDENTS
+---------- --------------
+         1              2
+         2              1
+         4              1
+         5              1
+         6              1
+         7              1
+         8              1
+         9              1
+        10              1
+
+9 rows selected.
+
+SQL>
+SQL> -- 18. Faculty name and courses taught
+SQL> SELECT F.NAME, COUNT(C.COURSEID) AS Total_Courses
+  2  FROM Faculty F
+  3  JOIN Course C
+  4  ON F.FACULTYID = C.FACULTYID
+  5  GROUP BY F.NAME;
+
+NAME                                               TOTAL_COURSES
+-------------------------------------------------- -------------
+Sujeet Kumar                                                   1
+Prof. Raushan Anand                                            1
+Prof. Hare Krishna Mishra                                      2
+Prof. Md. Izhar                                                2
+Prof. Kunal Kumar(HoD)                                         1
+Prof. Manisha Kumari Singh                                     1
+Mr. Nishikant Kumar                                            2
+
+7 rows selected.
+
+SQL> -- 19. Course name and maximum grade
+SQL> SELECT C.COURSENAME, MAX(E.Grade) AS Max_Grade
+  2  FROM Course C
+  3  JOIN Enrollment E
+  4  ON C.COURSEID = E.COURSEID
+  5  GROUP BY C.COURSENAME;
+
+COURSENAME                                         MAX_G
+-------------------------------------------------- -----
+DBMS                                               A
+Quantum Physics                                    B+
+Digital Electronic                                 A-
+Computer Network                                   B
+DSA                                                A
+Electronic                                         B+
+Operating System                                   A-
+Fluid mechanics                                    B
+Advanced Hydrology                                 A
+Power System                                       A+
+
+10 rows selected.
+
+SQL>
+SQL> -- 20. Department and total courses
+SQL> SELECT DEPTID, COUNT(*) AS Total_Courses
+  2  FROM Course
+  3  GROUP BY DEPTID;
+
+    DEPTID TOTAL_COURSES
+---------- -------------
+         1             2
+         4             4
+         5             1
+         7             1
+         8             1
+         6             1
+
+6 rows selected.
+
+SQL>
+SQL> -- 21. Semester and total students
+SQL> SELECT Semester, COUNT(StudentID) AS Total_Students
+  2  FROM Enrollment
+  3  GROUP BY Semester;
+
+  SEMESTER TOTAL_STUDENTS
+---------- --------------
+         1              2
+         2              2
+         3              2
+         4              2
+         5              2
+
+SQL>
+SQL> -- 22. Courses with more than 2 students
+SQL> SELECT CourseID, COUNT(StudentID) AS Total_Students
+  2  FROM Enrollment
+  3  GROUP BY CourseID
+  4  HAVING COUNT(StudentID) > 2;
+
+no rows selected
