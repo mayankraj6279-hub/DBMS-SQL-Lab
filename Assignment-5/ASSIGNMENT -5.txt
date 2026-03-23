@@ -1,0 +1,996 @@
+SQL> SELECT S.StudentID, S.Name, E.CourseID
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID;
+
+ STUDENTID NAME                                                 COURSEID
+---------- -------------------------------------------------- ----------
+         1 Rahul Kumar                                               201
+         2 Anjali Kumari                                             202
+         3 Vikas Sharma                                              203
+         4 Neha Singh                                                204
+         5 Amit Verma                                                205
+         6 Pooja Gupta                                               206
+         7 Saurabh Mishra                                            207
+         8 Kiran Patel                                               208
+         9 Priya Yadav                                               209
+        10 Rohit Das                                                 210
+
+10 rows selected.
+
+SQL>  SELECT S.Name, E.Semester
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID;
+
+NAME                                                 SEMESTER
+-------------------------------------------------- ----------
+Rahul Kumar                                                 1
+Anjali Kumari                                               1
+Vikas Sharma                                                2
+Neha Singh                                                  2
+Amit Verma                                                  3
+Pooja Gupta                                                 3
+Saurabh Mishra                                              4
+Kiran Patel                                                 4
+Priya Yadav                                                 5
+Rohit Das                                                   5
+
+10 rows selected.
+
+SQL> SELECT S.Name, E.Grade
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID;
+
+NAME                                               GRADE
+-------------------------------------------------- -----
+Rahul Kumar                                        A
+Anjali Kumari                                      B+
+Vikas Sharma                                       A-
+Neha Singh                                         B
+Amit Verma                                         A
+Pooja Gupta                                        B+
+Saurabh Mishra                                     A-
+Kiran Patel                                        B
+Priya Yadav                                        A
+Rohit Das                                          A+
+
+10 rows selected.
+
+SQL> SELECT C.CourseName, C.Credits, F.Name
+  2  FROM Course C
+  3  INNER JOIN Faculty F
+  4  ON C.FacultyID = F.FacultyID;
+
+COURSENAME                                            CREDITS
+-------------------------------------------------- ----------
+NAME
+--------------------------------------------------
+DBMS                                                        4
+Sujeet Kumar
+
+Digital Electronic                                          3
+Prof. Hare Krishna Mishra
+
+Power System                                                3
+Prof. Hare Krishna Mishra
+
+
+COURSENAME                                            CREDITS
+-------------------------------------------------- ----------
+NAME
+--------------------------------------------------
+Operating System                                            4
+Prof. Manisha Kumari Singh
+
+Computer Network                                            3
+Prof. Md. Izhar
+
+DSA                                                         4
+Prof. Md. Izhar
+
+
+COURSENAME                                            CREDITS
+-------------------------------------------------- ----------
+NAME
+--------------------------------------------------
+Electronic                                                  2
+Prof. Kunal Kumar(HoD)
+
+Quantum Physics                                             3
+Prof. Raushan Anand
+
+Fluid mechanics                                             4
+Mr. Nishikant Kumar
+
+
+COURSENAME                                            CREDITS
+-------------------------------------------------- ----------
+NAME
+--------------------------------------------------
+Advanced Hydrology                                          3
+Mr. Nishikant Kumar
+
+
+10 rows selected.
+
+SQL> SELECT C.CourseName
+  2  FROM Course C
+  3  INNER JOIN Faculty F
+  4  ON C.FacultyID = F.FacultyID
+  5  WHERE F.FacultyID = 'F201';
+WHERE F.FacultyID = 'F201'
+                    *
+ERROR at line 5:
+ORA-01722: invalid number
+
+
+SQL> SELECT C.CourseName
+  2    2  FROM Course C
+  3    3  INNER JOIN Faculty F
+  4    4  ON C.FacultyID = F.FacultyID
+  5        WHERE F.FacultyID =101;
+  2  FROM Course C
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT C.CourseName
+  2  FROM Course C
+  3  INNER JOIN Faculty F
+  4  ON C.FacultyID = F.FacultyID
+  5  WHERE F.FacultyID = 102;
+
+no rows selected
+
+SQL> SELECT * FROM Course;
+
+  COURSEID COURSENAME                                            CREDITS
+---------- -------------------------------------------------- ----------
+    DEPTID  FACULTYID
+---------- ----------
+       201 DBMS                                                        4
+         1        101
+
+       202 Quantum Physics                                             3
+         4        109
+
+       203 Digital Electronic                                          3
+         5        103
+
+
+  COURSEID COURSENAME                                            CREDITS
+---------- -------------------------------------------------- ----------
+    DEPTID  FACULTYID
+---------- ----------
+       204 Computer Network                                            3
+         7        107
+
+       205 DSA                                                         4
+         8        107
+
+       206 Electronic                                                  2
+         4        108
+
+
+  COURSEID COURSENAME                                            CREDITS
+---------- -------------------------------------------------- ----------
+    DEPTID  FACULTYID
+---------- ----------
+       207 Operating System                                            4
+         1        106
+
+       208 Fluid mechanics                                             4
+         4        110
+
+       209 Advanced Hydrology                                          3
+         4        110
+
+
+  COURSEID COURSENAME                                            CREDITS
+---------- -------------------------------------------------- ----------
+    DEPTID  FACULTYID
+---------- ----------
+       210 Power System                                                3
+         6        103
+
+
+10 rows selected.
+
+SQL> SELECT C.CourseName
+  2  FROM Course C
+  3  INNER JOIN Faculty F
+  4  ON C.FacultyID = F.FacultyID
+  5  WHERE F.FacultyID = 107;
+
+COURSENAME
+--------------------------------------------------
+Computer Network
+DSA
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select*from student;
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04
+Male       9123456789               1
+
+         2 Anjali Kumari                                      10-MAY-03
+Female     9234567890               1
+
+         3 Vikas Sharma                                       22-JAN-04
+Male       9345678901               2
+
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         4 Neha Singh                                         18-SEP-03
+Female     9123456784               4
+
+         5 Amit Verma                                         05-MAR-04
+Male       9123456785               5
+
+         6 Pooja Gupta                                        12-DEC-03
+Female     9123456786               6
+
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         7 Saurabh Mishra                                     28-JUN-04
+Male       9123456787               7
+
+         8 Kiran Patel                                        07-APR-03
+Male       9123456788               8
+
+         9 Priya Yadav                                        19-NOV-04
+Female     9123456789               9
+
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+        10 Rohit Das                                          30-JAN-03
+Male       9123456790              10
+
+
+10 rows selected.
+
+SQL> select*
+  2  from student
+  3  where deptid=1;
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04
+Male       9123456789               1
+
+         2 Anjali Kumari                                      10-MAY-03
+Female     9234567890               1
+
+
+SQL> select*
+  2  from student
+  3  where gender ='female';
+
+no rows selected
+
+SQL> select*
+  2    2  from student
+  3     WHERE Gender ='Female';
+  2  from student
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT*
+  2  FROM STUDENT
+  3  WHERE Gender ='Female';
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         2 Anjali Kumari                                      10-MAY-03
+Female     9234567890               1
+
+         4 Neha Singh                                         18-SEP-03
+Female     9123456784               4
+
+         6 Pooja Gupta                                        12-DEC-03
+Female     9123456786               6
+
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         9 Priya Yadav                                        19-NOV-04
+Female     9123456789               9
+
+
+SQL> select * from student where gender='Female';
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         2 Anjali Kumari                                      10-MAY-03
+Female     9234567890               1
+
+         4 Neha Singh                                         18-SEP-03
+Female     9123456784               4
+
+         6 Pooja Gupta                                        12-DEC-03
+Female     9123456786               6
+
+
+ STUDENTID NAME                                               DOB
+---------- -------------------------------------------------- ---------
+GENDER     CONTACT             DEPTID
+---------- --------------- ----------
+         9 Priya Yadav                                        19-NOV-04
+Female     9123456789               9
+
+
+SQL> SELECT F.Name, F.Designation, C.CourseName
+  2  FROM Faculty F
+  3  INNER JOIN Course C
+  4  ON F.FacultyID = C.FacultyID;
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Sujeet Kumar
+Assistant Professor
+DBMS
+
+Prof. Raushan Anand
+Assistant Professor
+Quantum Physics
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+
+Prof. Hare Krishna Mishra
+Assistant Professor
+Digital Electronic
+
+Prof. Md. Izhar
+Assistant Professor
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Computer Network
+
+Prof. Md. Izhar
+Assistant Professor
+DSA
+
+Prof. Kunal Kumar(HoD)
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Assistant Professor
+Electronic
+
+Prof. Manisha Kumari Singh
+Assistant Professor
+Operating System
+
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Mr. Nishikant Kumar
+Assistant Professor
+Fluid mechanics
+
+Mr. Nishikant Kumar
+Assistant Professor
+Advanced Hydrology
+
+NAME
+--------------------------------------------------
+DESIGNATION
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+
+Prof. Hare Krishna Mishra
+Assistant Professor
+Power System
+
+
+10 rows selected.
+
+SQL>  SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID;
+
+NAME
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Rahul Kumar
+DBMS
+
+Anjali Kumari
+Quantum Physics
+
+Vikas Sharma
+Digital Electronic
+
+
+NAME
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Neha Singh
+Computer Network
+
+Amit Verma
+DSA
+
+Pooja Gupta
+Electronic
+
+
+NAME
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Saurabh Mishra
+Operating System
+
+Kiran Patel
+Fluid mechanics
+
+Priya Yadav
+Advanced Hydrology
+
+
+NAME
+--------------------------------------------------
+COURSENAME
+--------------------------------------------------
+Rohit Das
+Power System
+
+
+10 rows selected.
+
+SQL> SET LINESIZE 200;
+SQL> SET PAGESIZE 100;
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID;
+
+NAME                                               COURSENAME
+-------------------------------------------------- --------------------------------------------------
+Rahul Kumar                                        DBMS
+Anjali Kumari                                      Quantum Physics
+Vikas Sharma                                       Digital Electronic
+Neha Singh                                         Computer Network
+Amit Verma                                         DSA
+Pooja Gupta                                        Electronic
+Saurabh Mishra                                     Operating System
+Kiran Patel                                        Fluid mechanics
+Priya Yadav                                        Advanced Hydrology
+Rohit Das                                          Power System
+
+10 rows selected.
+
+SQL> SELECT S.Name, C.CourseName, E.Semester
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID;
+
+NAME                                               COURSENAME                                           SEMESTER
+-------------------------------------------------- -------------------------------------------------- ----------
+Rahul Kumar                                        DBMS                                                        1
+Anjali Kumari                                      Quantum Physics                                             1
+Vikas Sharma                                       Digital Electronic                                          2
+Neha Singh                                         Computer Network                                            2
+Amit Verma                                         DSA                                                         3
+Pooja Gupta                                        Electronic                                                  3
+Saurabh Mishra                                     Operating System                                            4
+Kiran Patel                                        Fluid mechanics                                             4
+Priya Yadav                                        Advanced Hydrology                                          5
+Rohit Das                                          Power System                                                5
+
+10 rows selected.
+
+SQL> SELECT S.Name, C.CourseName, E.Grade
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE E.Semester = 4;
+
+NAME                                               COURSENAME                                         GRADE
+-------------------------------------------------- -------------------------------------------------- -----
+Saurabh Mishra                                     Operating System                                   A-
+Kiran Patel                                        Fluid mechanics                                    B
+
+SQL> SELECT C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE S.StudentID = 1
+  8
+SQL> SELECT C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE S.StudentID = 1;
+
+COURSENAME
+--------------------------------------------------
+DBMS
+
+SQL> SELECT S.Name, S.DepartmentID, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID;
+SELECT S.Name, S.DepartmentID, C.CourseName
+               *
+ERROR at line 1:
+ORA-00904: "S"."DEPARTMENTID": invalid identifier
+
+
+SQL> SELECT S.Name, S.DeptID, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID;
+
+NAME                                                   DEPTID COURSENAME
+-------------------------------------------------- ---------- --------------------------------------------------
+Rahul Kumar                                                 1 DBMS
+Anjali Kumari                                               1 Quantum Physics
+Vikas Sharma                                                2 Digital Electronic
+Neha Singh                                                  4 Computer Network
+Amit Verma                                                  5 DSA
+Pooja Gupta                                                 6 Electronic
+Saurabh Mishra                                              7 Operating System
+Kiran Patel                                                 8 Fluid mechanics
+Priya Yadav                                                 9 Advanced Hydrology
+Rohit Das                                                  10 Power System
+
+10 rows selected.
+
+SQL> SELECT * FROM Department;
+
+    DEPTID DEPTNAME                                           OFFICELOCATION
+---------- -------------------------------------------------- --------------------------------------------------
+         1 CSE                                                Block A
+         2 ECE                                                Block B
+         3 ME                                                 Block C
+         4 Civil                                              Block D
+         5 IT                                                 Block E
+         6 EEE                                                Block F
+         7 AI                                                 Block G
+         8 ML                                                 Block H
+         9 3D                                                 Block I
+        10 DS                                                 Block J
+
+10 rows selected.
+
+SQL> SELECT * FROM Faculty;
+
+ FACULTYID NAME                                               DESIGNATION                                        EMAIL                                     DEPTID
+---------- -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ----------
+       101 Sujeet Kumar                                       Assistant Professor                                ksujeet.cs@gmail.com                           1
+       102 Prof. Praveen Kumar                                Assistant Professor                                praveenkumaryadav782@gmail.com                 1
+       103 Prof. Hare Krishna Mishra                          Assistant Professor                                hare.dbit@gmail.com                            6
+       104 Prof. Nitish Kumar                                 Assistant Professor                                nitianj@gmail.com                              6
+       105 Prof. Murlidhar Prasad Singh(HoD)                  Assistant Professor                                singhmurlidhar@gmail.com                       9
+       106 Prof. Manisha Kumari Singh                         Assistant Professor                                manisha.k241@gmail.com                         8
+       107 Prof. Md. Izhar                                    Assistant Professor                                mdizhar1996@gmail.com                          8
+       108 Prof. Kunal Kumar(HoD)                             Assistant Professor                                kunal1989kumar@gmail.com                       4
+       109 Prof. Raushan Anand                                Assistant Professor                                raushanbpmc@gmail.com                          4
+       110 Mr. Nishikant Kumar                                Assistant Professor                                nishikantbpmc32@gmail.com                      2
+
+10 rows selected.
+
+SQL> SELECT * FROM Course;
+
+  COURSEID COURSENAME                                            CREDITS     DEPTID  FACULTYID
+---------- -------------------------------------------------- ---------- ---------- ----------
+       201 DBMS                                                        4          1        101
+       202 Quantum Physics                                             3          4        109
+       203 Digital Electronic                                          3          5        103
+       204 Computer Network                                            3          7        107
+       205 DSA                                                         4          8        107
+       206 Electronic                                                  2          4        108
+       207 Operating System                                            4          1        106
+       208 Fluid mechanics                                             4          4        110
+       209 Advanced Hydrology                                          3          4        110
+       210 Power System                                                3          6        103
+
+10 rows selected.
+
+SQL> SELECT * FROM Student;
+
+ STUDENTID NAME                                               DOB       GENDER     CONTACT             DEPTID
+---------- -------------------------------------------------- --------- ---------- --------------- ----------
+         1 Rahul Kumar                                        15-AUG-04 Male       9123456789               1
+         2 Anjali Kumari                                      10-MAY-03 Female     9234567890               1
+         3 Vikas Sharma                                       22-JAN-04 Male       9345678901               2
+         4 Neha Singh                                         18-SEP-03 Female     9123456784               4
+         5 Amit Verma                                         05-MAR-04 Male       9123456785               5
+         6 Pooja Gupta                                        12-DEC-03 Female     9123456786               6
+         7 Saurabh Mishra                                     28-JUN-04 Male       9123456787               7
+         8 Kiran Patel                                        07-APR-03 Male       9123456788               8
+         9 Priya Yadav                                        19-NOV-04 Female     9123456789               9
+        10 Rohit Das                                          30-JAN-03 Male       9123456790              10
+
+10 rows selected.
+
+SQL> SELECT * FROM Enrollment;
+
+ STUDENTID   COURSEID   SEMESTER GRADE
+---------- ---------- ---------- -----
+         1        201          1 A
+         2        202          1 B+
+         3        203          2 A-
+         4        204          2 B
+         5        205          3 A
+         6        206          3 B+
+         7        207          4 A-
+         8        208          4 B
+         9        209          5 A
+        10        210          5 A+
+
+10 rows selected.
+
+SQL>
+SQL> SELECT DepartmentID, CourseName
+  2  FROM Course;
+SELECT DepartmentID, CourseName
+       *
+ERROR at line 1:
+ORA-00904: "DEPARTMENTID": invalid identifier
+
+
+SQL> SELECT DEPTID,CourseName
+  2  from course;
+
+    DEPTID COURSENAME
+---------- --------------------------------------------------
+         1 DBMS
+         4 Quantum Physics
+         5 Digital Electronic
+         7 Computer Network
+         8 DSA
+         4 Electronic
+         1 Operating System
+         4 Fluid mechanics
+         4 Advanced Hydrology
+         6 Power System
+
+10 rows selected.
+
+SQL> SELECT F.Name, D.DepartmentName
+  2  FROM Faculty F
+  3  INNER JOIN Department D
+  4  ON F.DepartmentID = D.DepartmentID;
+ON F.DepartmentID = D.DepartmentID
+                    *
+ERROR at line 4:
+ORA-00904: "D"."DEPARTMENTID": invalid identifier
+
+
+SQL> SELECT F.Name,D.departmentName
+  2  from faculty f
+  3  inner join department D
+  4  ON f.DEPTID=D.DEPTID;
+SELECT F.Name,D.departmentName
+              *
+ERROR at line 1:
+ORA-00904: "D"."DEPARTMENTNAME": invalid identifier
+
+
+SQL> SELECT F.NAME ,D.DeptName
+  2  from faculty f
+  3  inner join dept D
+  4  ON f.DEPTID=D.DEPTID;
+inner join dept D
+           *
+ERROR at line 3:
+ORA-00942: table or view does not exist
+
+
+SQL> SELECT F.Name, D.DeptName
+  2  FROM Faculty F
+  3  INNER JOIN Department D
+  4  ON F.DeptID = D.DeptID;
+
+NAME                                               DEPTNAME
+-------------------------------------------------- --------------------------------------------------
+Sujeet Kumar                                       CSE
+Prof. Praveen Kumar                                CSE
+Mr. Nishikant Kumar                                ECE
+Prof. Kunal Kumar(HoD)                             Civil
+Prof. Raushan Anand                                Civil
+Prof. Hare Krishna Mishra                          EEE
+Prof. Nitish Kumar                                 EEE
+Prof. Manisha Kumari Singh                         ML
+Prof. Md. Izhar                                    ML
+Prof. Murlidhar Prasad Singh(HoD)                  3D
+
+10 rows selected.
+
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE S.DeptID=101;
+
+no rows selected
+
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE S.DeptID= 103;
+
+no rows selected
+
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  WHERE S.DeptID =107;
+
+no rows selected
+
+SQL> SELECT StudentID, Name, DeptID
+  2  FROM Student;
+
+ STUDENTID NAME                                                   DEPTID
+---------- -------------------------------------------------- ----------
+         1 Rahul Kumar                                                 1
+         2 Anjali Kumari                                               1
+         3 Vikas Sharma                                                2
+         4 Neha Singh                                                  4
+         5 Amit Verma                                                  5
+         6 Pooja Gupta                                                 6
+         7 Saurabh Mishra                                              7
+         8 Kiran Patel                                                 8
+         9 Priya Yadav                                                 9
+        10 Rohit Das                                                  10
+
+10 rows selected.
+
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6   ON E.CourseID = C.CourseID
+  7   WHERE S.DeptID = 1;
+
+NAME                                               COURSENAME
+-------------------------------------------------- --------------------------------------------------
+Rahul Kumar                                        DBMS
+Anjali Kumari                                      Quantum Physics
+
+SQL> SELECT S.Name, C.CourseName
+  2  FROM Student S
+  3  INNER JOIN Enrollment E
+  4  ON S.StudentID = E.StudentID
+  5  INNER JOIN Course C
+  6  ON E.CourseID = C.CourseID
+  7  ORDER BY S.Name ASC;
+
+NAME                                               COURSENAME
+-------------------------------------------------- --------------------------------------------------
+Amit Verma                                         DSA
+Anjali Kumari                                      Quantum Physics
+Kiran Patel                                        Fluid mechanics
+Neha Singh                                         Computer Network
+Pooja Gupta                                        Electronic
+Priya Yadav                                        Advanced Hydrology
+Rahul Kumar                                        DBMS
+Rohit Das                                          Power System
+Saurabh Mishra                                     Operating System
+Vikas Sharma                                       Digital Electronic
+
+10 rows selected.
+
+SQL> SELECT F.Name, C.CourseName
+  2  FROM Faculty F
+  3  INNER JOIN Course C
+  4  ON F.FacultyID = C.FacultyID
+  5  ORDER BY C.Credits DESC;
+
+NAME                                               COURSENAME
+-------------------------------------------------- --------------------------------------------------
+Sujeet Kumar                                       DBMS
+Prof. Md. Izhar                                    DSA
+Mr. Nishikant Kumar                                Fluid mechanics
+Prof. Manisha Kumari Singh                         Operating System
+Prof. Hare Krishna Mishra                          Power System
+Mr. Nishikant Kumar                                Advanced Hydrology
+Prof. Md. Izhar                                    Computer Network
+Prof. Hare Krishna Mishra                          Digital Electronic
+Prof. Raushan Anand                                Quantum Physics
+Prof. Kunal Kumar(HoD)                             Electronic
+
+10 rows selected.
+
+SQL> SELECT* from course;
+
+  COURSEID COURSENAME                                            CREDITS     DEPTID  FACULTYID
+---------- -------------------------------------------------- ---------- ---------- ----------
+       201 DBMS                                                        4          1        101
+       202 Quantum Physics                                             3          4        109
+       203 Digital Electronic                                          3          5        103
+       204 Computer Network                                            3          7        107
+       205 DSA                                                         4          8        107
+       206 Electronic                                                  2          4        108
+       207 Operating System                                            4          1        106
+       208 Fluid mechanics                                             4          4        110
+       209 Advanced Hydrology                                          3          4        110
+       210 Power System                                                3          6        103
+
+10 rows selected.
+
+SQL> SELECT C.CourseName, COUNT(E.StudentID) AS TotalStudents
+  2  FROM Course C
+  3  INNER JOIN Enrollment E
+  4  ON C.CourseID = E.CourseID
+  5  GROUP BY C.CourseName;
+
+COURSENAME                                         TOTALSTUDENTS
+-------------------------------------------------- -------------
+DBMS                                                           1
+Quantum Physics                                                1
+Digital Electronic                                             1
+Computer Network                                               1
+DSA                                                            1
+Electronic                                                     1
+Operating System                                               1
+Fluid mechanics                                                1
+Advanced Hydrology                                             1
+Power System                                                   1
+
+10 rows selected.
+
+SQL>  SELECT F.Name, COUNT(C.CourseID) AS TotalCourses
+  2  FROM Faculty F
+  3  INNER JOIN Course C
+  4  ON F.FacultyID = C.FacultyID
+  5  GROUP BY F.Name;
+
+NAME                                               TOTALCOURSES
+-------------------------------------------------- ------------
+Sujeet Kumar                                                  1
+Prof. Raushan Anand                                           1
+Prof. Hare Krishna Mishra                                     2
+Prof. Md. Izhar                                               2
+Prof. Kunal Kumar(HoD)                                        1
+Prof. Manisha Kumari Singh                                    1
+Mr. Nishikant Kumar                                           2
+
+7 rows selected.
+
+SQL> SELECT DepartmentID, COUNT(StudentID) AS TotalStudents
+  2  FROM Student
+  3  GROUP BY DepartmentID;
+GROUP BY DepartmentID
+         *
+ERROR at line 3:
+ORA-00904: "DEPARTMENTID": invalid identifier
+
+
+SQL>  SELECT Dept ID,COUNT(StudentID) AS TotalStudents
+  2  FROM Student
+  3  GROUP BY DeptID;
+ SELECT Dept ID,COUNT(StudentID) AS TotalStudents
+        *
+ERROR at line 1:
+ORA-00904: "DEPT": invalid identifier
+
+
+SQL> SELECT DeptID, COUNT(StudentID) AS TotalStudents
+  2  FROM Student
+  3  GROUP BY DeptID;
+
+    DEPTID TOTALSTUDENTS
+---------- -------------
+         1             2
+         2             1
+         4             1
+         5             1
+         6             1
+         7             1
+         8             1
+         9             1
+        10             1
+
+9 rows selected.
+
+SQL> SELECT C.CourseName, MAX(E.Grade) AS MaxGrade
+  2  FROM Course C
+  3  INNER JOIN Enrollment E
+  4  ON C.CourseID = E.CourseID
+  5  GROUP BY C.CourseName;
+
+COURSENAME                                         MAXGR
+-------------------------------------------------- -----
+DBMS                                               A
+Quantum Physics                                    B+
+Digital Electronic                                 A-
+Computer Network                                   B
+DSA                                                A
+Electronic                                         B+
+Operating System                                   A-
+Fluid mechanics                                    B
+Advanced Hydrology                                 A
+Power System                                       A+
+
+10 rows selected.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL>
